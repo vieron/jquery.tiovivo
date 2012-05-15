@@ -1,11 +1,6 @@
-/*
- * jquery.tiovivo
- * https://github.com/vieron/jquery.tiovivo
- *
- * Copyright (c) 2012 vieron
- * Licensed under the MIT, GPL licenses.
- */
-
+/*! jquery tiovivo - v0.1.0 - 2012-05-16
+* https://github.com/vieron/jquery.tiovivo
+* Copyright (c) 2012 vieron; Licensed MIT, GPL */
 
 ;(function($, window, document, undefined){
 

@@ -7,7 +7,7 @@
 <style type="text/css">
   .tiovivo {
      width: 210px;
-     height: 140px;
+     height: 340px;
      position: relative;
      margin:130px auto 0;
      -webkit-perspective: 1000;
@@ -27,8 +27,14 @@
      height: 190px;
      left: 10px;
      top: 10px;
-     background-color:rgba(0,0,0,.3);
+     background-color:rgba(0,0,0,.1);
      /*border: 2px solid black;*/
+     -webkit-transition: background-color .5s;
+   }
+
+   .tiovivo ul li.active + li:hover{
+    background-color:rgba(0,0,0,.5);
+    cursor:pointer;
    }
 
 
@@ -71,8 +77,10 @@
   </div>
 
   <p id="navigation">
-    <button id="previous" data-increment="-1">Previous</button>
-    <button id="next" data-increment="1">Next</button>
+    <button id="previous">Previous</button>
+    <button id="next">Next</button>
+    <button id="remove">Remove</button> <input type="text" value="" id="remove_n" placeholder="panel to remove">
+    <button id="add">Add one after</button> <input type="text" value="" id="add_n" placeholder="insert after">
   </p>
 
   <script src="../libs/jquery/jquery.js" type="text/javascript" charset="utf-8"></script>
@@ -86,6 +94,17 @@
       var $tiovivo = $(".tiovivo").tiovivo();
 
       tapi = $tiovivo.data('tiovivo');
+
+      $('#previous').on('click', $.proxy(tapi.prev, tapi));
+      $('#next').on('click', $.proxy(tapi.next, tapi));
+
+      $('#remove').on('click', function(){
+        tapi.removePanel($('#remove_n').val());
+      });
+
+      $('#add').on('click', function(){
+        tapi.addPanel($('#add_n').val());
+      });
 
 
     });

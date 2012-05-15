@@ -64,6 +64,24 @@
     strictEqual(api.index, 9, 'should be 9');
   });
 
+  test('adding new Panel should update panelsCount', 1, function() {
+
+    var api = this.carousel.tiovivo().data('tiovivo');
+    var original_panel_count = api.panelsCount;
+    api.addPanel();
+
+    strictEqual( api.panelsCount > original_panel_count, true, 'current panelsCount should be greater than original panelsCount');
+  });
+
+  test('removing new Panel should update panelsCount', 1, function() {
+
+    var api = this.carousel.tiovivo().data('tiovivo');
+    var original_panel_count = api.panelsCount;
+    api.removePanel();
+
+    strictEqual( api.panelsCount < original_panel_count, true, 'current panelsCount should be smaller than original panelsCount');
+  });
+
 
 
   // module('jQuery.awesome');
