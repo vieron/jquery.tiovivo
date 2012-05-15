@@ -1,0 +1,33 @@
+{
+  "name": "jquery.tiovivo",
+  "title": "jquery tiovivo",
+  "description": "Carousel based on CSS 3D Transformations",
+  "version": "0.1.0",
+  "homepage": "https://github.com/vieron/jquery.tiovivo",
+  "author": {
+    "name": "vieron",
+    "email": "javiersanchezmarin@gmail.com",
+    "url": "vieron.net"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/vieron/jquery.tiovivo.git"
+  },
+  "bugs": {
+    "url": "https://github.com/vieron/jquery.tiovivo/issues"
+  },
+  "licenses": [
+    {
+      "type": "MIT",
+      "url": "https://github.com/vieron/jquery.tiovivo/blob/master/LICENSE-MIT"
+    },
+    {
+      "type": "GPL",
+      "url": "https://github.com/vieron/jquery.tiovivo/blob/master/LICENSE-GPL"
+    }
+  ],
+  "dependencies": {
+    "jquery": "~1.5"
+  },
+  "keywords": []
+}

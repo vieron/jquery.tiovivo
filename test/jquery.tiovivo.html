@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>jquery tiovivo Test Suite</title>
+  <!-- Load local jQuery, removing access to $ (use jQuery, not $). -->
+  <script src="../libs/jquery/jquery.js"></script>
+  <script src="../libs/modernizr/modernizr.js"></script>
+  <script>jQuery.noConflict()</script>
+  <!-- Load local QUnit (grunt requires v1.0.0 or newer). -->
+  <link rel="stylesheet" href="../libs/qunit/qunit.css" media="screen">
+  <script src="../libs/qunit/qunit.js"></script>
+  <!-- Load local lib and tests. -->
+  <script src="../src/jquery.tiovivo.js"></script>
+  <script src="jquery.tiovivo_test.js"></script>
+</head>
+<body>
+  <h1 id="qunit-header">jquery tiovivo Test Suite</h1>
+  <h2 id="qunit-banner"></h2>
+  <div id="qunit-testrunner-toolbar"></div>
+  <h2 id="qunit-userAgent"></h2>
+  <ol id="qunit-tests"></ol>
+  <div id="qunit-fixture">
+
+    <div id="tiovivo" class="tiovivo">
+    <ul>
+      <li>1</li>
+      <li>2</li>
+      <li>3</li>
+      <li>4</li>
+      <li>5</li>
+      <li>6</li>
+      <li>7</li>
+      <li>8</li>
+      <li>9</li>
+    </ul>
+  </div>
+
+  </div>
+</body>
+</html>

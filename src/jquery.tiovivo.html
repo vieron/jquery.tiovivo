@@ -1,0 +1,94 @@
+<!doctype html>
+<html>
+<head>
+  <title>jquery.tiovivo</title>
+
+
+<style type="text/css">
+  .tiovivo {
+     width: 210px;
+     height: 140px;
+     position: relative;
+     margin:130px auto 0;
+     -webkit-perspective: 1000;
+
+   }
+   .tiovivo ul {
+     width: 100%;
+     height: 100%;
+     position: absolute;
+     -webkit-transform-style: preserve-3d;
+     -webkit-transition: -webkit-transform 1s;
+   }
+   .tiovivo ul li {
+     display: block;
+     position: absolute;
+     width: 190px;
+     height: 190px;
+     left: 10px;
+     top: 10px;
+     background-color:rgba(0,0,0,.3);
+     /*border: 2px solid black;*/
+   }
+
+
+/*   #carousel li:nth-child(1) { -webkit-transform: rotateY(0deg); }
+   #carousel li:nth-child(2) { -webkit-transform: rotateY(40deg); }
+   #carousel li:nth-child(3) { -webkit-transform: rotateY(80deg); }
+   #carousel li:nth-child(4) { -webkit-transform: rotateY(120deg); }
+   #carousel li:nth-child(5) { -webkit-transform: rotateY(160deg); }
+   #carousel li:nth-child(6) { -webkit-transform: rotateY(200deg); }
+   #carousel li:nth-child(7) { -webkit-transform: rotateY(240deg); }
+   #carousel li:nth-child(8) { -webkit-transform: rotateY(280deg); }
+   #carousel li:nth-child(9) { -webkit-transform: rotateY(320deg); }*/
+
+
+   .tiovivo ul li,
+   .tiovivo ul li.active {
+     -webkit-transition: -webkit-transform 1s;
+   }
+
+   .tiovivo ul li.active {
+     background:red;
+   }
+</style>
+
+</head>
+<body>
+
+  <div class="tiovivo">
+    <ul>
+      <li>1</li>
+      <li>2</li>
+      <li>3</li>
+      <li>4</li>
+      <li>5</li>
+      <li>6</li>
+      <li>7</li>
+      <li>8</li>
+      <li>9</li>
+    </ul>
+  </div>
+
+  <p id="navigation">
+    <button id="previous" data-increment="-1">Previous</button>
+    <button id="next" data-increment="1">Next</button>
+  </p>
+
+  <script src="../libs/jquery/jquery.js" type="text/javascript" charset="utf-8"></script>
+  <script src="../libs/modernizr/modernizr.js" type="text/javascript" charset="utf-8"></script>
+
+  <script src="jquery.tiovivo.js" type="text/javascript" charset="utf-8"></script>
+  <script type="text/javascript">
+  var tapi;
+    $(function(){
+
+      var $tiovivo = $(".tiovivo").tiovivo();
+
+      tapi = $tiovivo.data('tiovivo');
+
+
+    });
+  </script>
+</body>
+</html>
