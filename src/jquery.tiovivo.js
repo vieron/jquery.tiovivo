@@ -53,6 +53,14 @@
     this.donut.on(transitionEndEvent, 'li',  function(e){
         e.stopPropagation();
     });
+
+    $(document).on('keyup', function(e){
+      if (e.keyCode === 37) {
+        self.prev();
+      }else if (e.keyCode === 39) {
+        self.next();
+      };
+    })
   };
 
   fn.onClickPanel = function(e){
@@ -65,16 +73,19 @@
 
   fn.distributePanes = function(){
     var self = this;
-
     this.panels = this.donut.find('> li');
     this.panelsCount = this.panels.length;
     this.panelsAngle = 360/this.panelsCount;
     this.panelSize = this.panels.width()+this.options.panelMargin;
     this.tz = Math.round( ( this.panelSize / 2 ) / Math.tan( Math.PI / this.panelsCount ) );
 
-    this.panels.each(function(i){
-      $(this).css(transformProp, 'rotateY(' + (i*self.panelsAngle) + 'deg) translateZ('+self.tz+'px) scale(1)');
-    });
+    this.panels
+      .removeClass('active')
+      .each(function(i){
+        $(this).css(transformProp, 'rotateY(' + (i*self.panelsAngle) + 'deg) translateZ('+self.tz+'px) scale(1)');
+      });
+
+    // this.goTo();
   };
 
   fn.navHandler = function(n){

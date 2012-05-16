@@ -93,6 +93,29 @@
   });
 
 
+  test('going to panel 1 and pressing right arrow key should go to the next panel', 1, function() {
+
+    var api = this.carousel.tiovivo().data('tiovivo');
+    api.goTo(1);
+    var e = $.Event("keyup");
+    e.keyCode = 39;
+    $(document).trigger(e);
+
+    strictEqual( api.index , 2 , 'should be 2');
+  });
+
+  test('going to panel 2 and pressing left arrow key should go to the prev panel', 1, function() {
+
+    var api = this.carousel.tiovivo().data('tiovivo');
+    api.goTo(2);
+    var e = $.Event("keyup");
+    e.keyCode = 37;
+    $(document).trigger(e);
+
+    strictEqual( api.index , 1 , 'should be 1');
+  });
+
+
 
   // module('jQuery.awesome');
 
