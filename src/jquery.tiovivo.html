@@ -83,6 +83,8 @@
     <button id="add">Add one after</button> <input type="text" value="" id="add_n" placeholder="insert after">
   </p>
 
+  <ul id="log"></ul>
+
   <script src="../libs/jquery/jquery.js" type="text/javascript" charset="utf-8"></script>
   <script src="../libs/modernizr/modernizr.js" type="text/javascript" charset="utf-8"></script>
 
@@ -91,7 +93,12 @@
   var tapi;
     $(function(){
 
-      var $tiovivo = $(".tiovivo").tiovivo();
+      var $tiovivo = $(".tiovivo").tiovivo({
+        onDonutTransitionEnds : function(e){
+          $('#log').append('<li>donut:TransitionEnd</li>');
+          $('#log').append('<li>index:'+this.index+'</li>');
+        }
+      });
 
       tapi = $tiovivo.data('tiovivo');
 

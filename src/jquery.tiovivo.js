@@ -6,13 +6,21 @@
  * Licensed under the MIT, GPL licenses.
  */
 
-
 ;(function($, window, document, undefined){
 
   var defaults = {
-    panelMargin : 20
+    panelMargin : 20,
+    onDonutTransitionEnds : function(e){}
   },
-  transformProp = Modernizr.prefixed('transform');
+  transEndEventNames = {
+    'WebkitTransition' : 'webkitTransitionEnd',
+    'MozTransition'    : 'transitionend',
+    'OTransition'      : 'oTransitionEnd',
+    'msTransition'     : 'MSTransitionEnd',
+    'transition'       : 'transitionend'
+  },
+  transformProp = Modernizr.prefixed('transform'),
+  transitionEndEvent = transEndEventNames[ Modernizr.prefixed('transition') ];
 
   function Tiovivo(element, options){
     this.options = $.extend(defaults, options);
@@ -37,7 +45,14 @@
   };
 
   fn.initEvents = function(){
+    var self = this;
     this.donut.on('click', 'li', $.proxy(this.onClickPanel, this));
+
+    this.donut.on(transitionEndEvent,  $.proxy(this.options.onDonutTransitionEnds, this));
+
+    this.donut.on(transitionEndEvent, 'li',  function(e){
+        e.stopPropagation();
+    });
   };
 
   fn.onClickPanel = function(e){

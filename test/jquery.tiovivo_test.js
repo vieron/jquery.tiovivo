@@ -83,6 +83,16 @@
   });
 
 
+  test('options are setted and merged correctly', 1, function() {
+
+    var api = this.carousel.tiovivo({
+      onDonutTransitionEnds : true
+    }).data('tiovivo');
+
+    strictEqual( api.options.onDonutTransitionEnds, true, 'onDonutTransitionEnds setted to true instead of original function');
+  });
+
+
 
   // module('jQuery.awesome');
 
